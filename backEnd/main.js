@@ -1,6 +1,7 @@
 const express = require("express");
 const connectDB = require("./config/db");
 const dotenv = require("dotenv");
+const todoRoutes = require("./routes/todoRoutes")
 
 const app = express();
 dotenv.config()
@@ -8,6 +9,8 @@ dotenv.config()
 connectDB();
 
 app.use(express.json());
+
+app.use("/api/todos",todoRoutes );
 
 const PORT = process.env.PORT || 3000;
 
