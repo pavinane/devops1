@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: ./backEnd
+    ports:
+      - "5000:5000"
+    networks:
+      - mern-network
+
+  frontend:
+    build:
+      context: ./frontEnd/my-todo
+    ports:
+      - "8000:80"
+    networks:
+      - mern-network
+
+  mongo:
+    image: mongo:latest
+    networks:
+      - mern-network
+    container_name: todo-mongo
+    ports:
+      - "27017:27017"
+
+networks:
+  mern-network:
+    driver: bridge
