@@ -8,3 +8,4 @@ exports.createTodoValidator = [
     .isLength({min:3})
     .withMessage("Title must be 3 character")
 ]
+

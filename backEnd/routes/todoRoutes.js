@@ -6,7 +6,10 @@ const {createTodoValidator} = require("../validators/todoValidators.js");
 
 router.post("/",createTodoValidator,todoController?.createTodo);
 
-router.get("/",todoController.getTodos)
+router.get("/",todoController.getTodos);
+
+router.get("/:id",todoController.getTodoById)
+
 
 
 module.exports = router;
